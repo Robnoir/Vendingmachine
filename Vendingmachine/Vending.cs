@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Vendingmachine
 {
-    internal class Wallet
+    internal class Vending
     {
-
+     
     }
 }

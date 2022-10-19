@@ -6,21 +6,23 @@ using System.Threading.Tasks;
 
 namespace Vendingmachine
 {
-    internal class Twix
+    internal class Popsoda
     {
+        public string name;
+        public string description;
+        public int price;
 
+        public static List<Popsoda> Sodapop = new List<Popsoda>();
 
-        string name;
-        string description;
-        int price;
-        public Twix(string name, string description, int price)
+        public Popsoda(string name, string description, int price)
         {
             this.name = name;
             this.description = description;
             this.price = price;
-
-
         }
+
+
+
 
 
 

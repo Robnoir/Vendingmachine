@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace Vendingmachine
 {
-    internal class Sprite
+    internal class Chocolate
     {
 
-        string name;
-        string description;
-        int price;
-        public Sprite(string name, string description, int price)
+        public string name;
+        public string description;
+        public int price;
+        public static List<Chocolate> Coco = new List<Chocolate>();
+        public Chocolate(string name, string description, int price)
         {
             this.name = name;
             this.description = description;
             this.price = price;
-
-                
         }
 
 
