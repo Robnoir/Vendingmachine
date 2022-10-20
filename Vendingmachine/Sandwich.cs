@@ -11,7 +11,7 @@ namespace Vendingmachine
     internal class Sandwich
     {
 
-        public string name;
+        public string name { get; set; }
         public string description;
         public int price;
 
