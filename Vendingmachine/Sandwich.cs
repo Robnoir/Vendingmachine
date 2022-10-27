@@ -17,6 +17,10 @@ namespace Vendingmachine
 
        public static List<Sandwich> Sandwichlist = new List<Sandwich>();
 
+
+
+
+        
         public Sandwich(string name, string description, int price)
         {
             this.name = name;
@@ -27,9 +31,21 @@ namespace Vendingmachine
           
         }
 
-       
+        public void Info()
+        {
+            Console.WriteLine();
+        }
 
-       
+        public static void PrintSandwich()
+        {
+            //Skriva ut innehållet från den statiska listan inuti klassen Person
+            Console.WriteLine("Here is the Sandwich menu: ");
+            foreach (Sandwich sandwichlist in Sandwich.Sandwichlist)
+            {
+
+                Console.WriteLine("|{0}| {1},  ||Price: {2}||", sandwichlist.name, sandwichlist.description, sandwichlist.price);
+            }
+        }
 
 
     }

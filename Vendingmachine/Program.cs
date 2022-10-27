@@ -10,19 +10,34 @@ namespace Vendingmachine
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello! Welcome to the Vendingmachine!");
 
 
 
+            Console.WriteLine("|*HELLO WELCOME TO THE VENDINGMACHINE!*|");
+
+            Console.WriteLine("What would you like to buy? ");
+            Console.WriteLine("1. Sandwich");
+            Console.WriteLine("2. Softdrink");
+            Console.WriteLine("3. Candybar");
+            Console.WriteLine("Please make a selection");
+
+            input = Console.ReadKey();
+            ConsoleKeyInfo input;
+            do
+            {
+                switch
+                 
+
+            } while (input.KeyChar.ToString() != "E");
 
             Console.WriteLine(" ");
+
 
             //Lägger till artiklar till listan Sandwichlist
             Sandwich.Sandwichlist.Add(new Sandwich("1.Philly steak sandwitch ", "Description: Beef and a lot of cheese", 50));
             Sandwich.Sandwichlist.Add(new Sandwich("2.BLT ", "Description: Bacon,lettuce and Tomato", 45));
-            Sandwich.Sandwichlist.Add(new Sandwich("3.Ostmacka", "Description: Traditional Swedish booring cheese sandwitch ", 78));
+            Sandwich.Sandwichlist.Add(new Sandwich("3.Ostmacka", "Description: Traditional Swedish booring cheese sandwich ", 78));
             Sandwich.Sandwichlist.Add(new Sandwich("4.Mozarella in Carozza", "Description: Fried sandwich with delicious melted mozarella, It will make you say Mamma mia! ", 52));
-
 
 
 
@@ -46,9 +61,9 @@ namespace Vendingmachine
 
 
 
-            PrintPop();
-
-
+            Popsoda.PrintPop();
+            Chocolate.PrintCoco();
+            Sandwich.PrintSandwich();    
 
 
 
@@ -56,36 +71,9 @@ namespace Vendingmachine
             Console.ReadKey();
         }
 
-        public static void PrintSandwich()
-        {
-            //Skriva ut innehållet från den statiska listan inuti klassen Person
-            Console.WriteLine("Here is the Sandwich menu: ");
-            foreach (Sandwich sandwichlist in Sandwich.Sandwichlist)
-            {
+        
+        
 
-                Console.WriteLine("|{0}| {1},  ||Price: {2}||", sandwichlist.name, sandwichlist.description, sandwichlist.price);
-            }
-        }
-        public static void PrintCoco()
-        {
-            //Skriva ut innehållet från den statiska listan inuti klassen Person
-            Console.WriteLine("Here is the Sandwich menu: ");
-            foreach (Chocolate chocolate in Chocolate.Coco)
-            {
-
-                Console.WriteLine("|{0}| {1},  ||Price: {2}||", chocolate.name, chocolate.description, chocolate.price);
-            }
-        }
-
-        public static void PrintPop()
-        {
-            //Skriva ut innehållet från den statiska listan inuti klassen Person
-            Console.WriteLine("Here is the Sandwich menu: ");
-            foreach (Popsoda popsoda in Popsoda.Sodapop)
-            {
-
-                Console.WriteLine("|{0}| {1},  ||Price: {2}||", popsoda.name, popsoda.description, popsoda.price);
-            }
-        }
+        
     }
 }

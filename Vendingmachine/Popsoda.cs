@@ -8,7 +8,7 @@ namespace Vendingmachine
 {
     internal class Popsoda
     {
-        public string name;
+        public string name { get; set; }
         public string description;
         public int price;
 
@@ -21,7 +21,16 @@ namespace Vendingmachine
             this.price = price;
         }
 
+        public static void PrintPop()
+        {
+            //Skriva ut innehållet från den statiska listan inuti klassen Person
+            Console.WriteLine("Here is the Sandwich menu: ");
+            foreach (Popsoda popsoda in Popsoda.Sodapop)
+            {
 
+                Console.WriteLine("|{0}| {1},  ||Price: {2}||", popsoda.name, popsoda.description, popsoda.price);
+            }
+        }
 
 
 

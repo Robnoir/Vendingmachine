@@ -9,7 +9,7 @@ namespace Vendingmachine
     internal class Chocolate
     {
 
-        public string name;
+        public string name { get; set; }
         public string description;
         public int price;
         public static List<Chocolate> Coco = new List<Chocolate>();
@@ -21,7 +21,16 @@ namespace Vendingmachine
         }
 
 
+        public static void PrintCoco()
+        {
+            //Skriva ut innehållet från den statiska listan inuti klassen Person
+            Console.WriteLine("Here is the Sandwich menu: ");
+            foreach (Chocolate chocolate in Chocolate.Coco)
+            {
 
+                Console.WriteLine("|{0}| {1},  ||Price: {2}||", chocolate.name, chocolate.description, chocolate.price);
+            }
+        }
 
 
     }
