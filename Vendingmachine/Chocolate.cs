@@ -12,12 +12,15 @@ namespace Vendingmachine
         public string name { get; set; }
         public string description;
         public int price;
+        public string id;
+
         public static List<Chocolate> Coco = new List<Chocolate>();
-        public Chocolate(string name, string description, int price)
+        public Chocolate(string name, string description, int price, string id)
         {
             this.name = name;
             this.description = description;
             this.price = price;
+            this.id = id;
         }
 
 

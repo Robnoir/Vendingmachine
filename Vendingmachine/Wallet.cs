@@ -8,27 +8,29 @@ namespace Vendingmachine
 {
     internal class Wallet
     {
-        public int Moneytotal { get; set; }
+        public int Deposit { get; set; }
         public Wallet()
         {
-            Moneytotal = 0;
+            Deposit = 0;
         }
         public void Depositcoin(int money)
         {
+
+            Console.WriteLine("Please deposit money ");
             //The only valid entries are 5, 10 ,25, 100
             switch (money)
             {
                 case (5):
-                    Moneytotal += 5;
+                    Deposit += 5;
                     break;
                 case (10):
-                    Moneytotal += 10;
+                    Deposit += 10;
                     break;
                 case (25):
-                    Moneytotal += 25;
+                    Deposit += 25;
                     break;
                 case (100):
-                    Moneytotal += 100;
+                    Deposit += 100;
                     break;
 
                 default:
