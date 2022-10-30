@@ -27,7 +27,7 @@ namespace Vendingmachine
         public static void PrintPop()
         {
             //Skriva ut innehållet från den statiska listan inuti klassen Person
-            Console.WriteLine("Here is the Sandwich menu: ");
+            Console.WriteLine("Here is the Soda pop menu: ");
             foreach (Popsoda popsoda in Popsoda.Sodapop)
             {
 

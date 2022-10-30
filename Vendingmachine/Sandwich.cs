@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Vendingmachine
 {
@@ -15,7 +17,7 @@ namespace Vendingmachine
         public string description;
         public int price;
         public string id;
-       public static List<Sandwich> Sandwichlist = new List<Sandwich>();
+        public static List<Sandwich> Sandwichlist = new List<Sandwich>();
 
 
 
@@ -31,63 +33,76 @@ namespace Vendingmachine
           
         }
 
-        public void Info()
+        public static void Info()
         {
-            Console.WriteLine();
+            Console.WriteLine("sugavmig");
         }
 
-        public int val;
+        
         public static void PrintSandwich()
         {
-            int val;
 
 
+
+             
             //Skriva ut innehållet från den statiska listan inuti klassen Person
+
             Console.WriteLine("Here is the Sandwich menu, please make a selection: ");
 
 
-            Console.WriteLine(" ");
-            foreach (Sandwich sandwichlist in Sandwich.Sandwichlist)
-            {
-
-                Console.WriteLine("|{0}| |Price: {1}||", sandwichlist.name, sandwichlist.price);
-                
-            }
-
-            
-
-
-            ConsoleKeyInfo consoleKeyInfo = Console.ReadKey();
+            ConsoleKeyInfo input;
             do
             {
                 
-                Console.WriteLine(" ");
-                switch(consoleKeyInfo.KeyChar.ToString())
+
+                foreach (var sandwich in Sandwichlist)
                 {
-                    case "1":
-                        Console.WriteLine("Thank you for choosing Philly steak sandwich!");
-                        Console.WriteLine("Do you want to see information about the sandwich?");
-                        string info = Console.ReadKey();
-                        
-                        if (info == "Y")
-                        {
-                            Console.WriteLine("{0}");
-                        }
 
-                        
-
+                    Console.WriteLine("|{0}| |Price: {1}||", sandwich.name , sandwich.price);
 
                 }
 
+                
+                input = Console.ReadKey();
+                string val;
+                switch (input.KeyChar.ToString())
+                {
+                   //TODO
+                   //Utveckla if valet.
+                    case "1":
+                        Console.Clear();
+                        Console.WriteLine("Thanx for choosing the BLT");
+                        Console.WriteLine("1.See information");
+                        Console.WriteLine("2.Buy Sandwich");
 
-            } while (consoleKeyInfo.KeyChar.ToString() != "E");
+                        val = Console.ReadLine();
+                        if(val =="1")
+                        {
+                            foreach(var sandwich in Sandwichlist)
+                            {
+                                Console.WriteLine(sandwich.description = "BLT");
+                            }
 
-           
+                        }
+                        else if(val =="2")
+                        {
+                            Interract.buyitem();
+
+                        }
+                       
+                        
+                        break;
 
 
+                    default:
+                        break;
 
+                }
+                
 
+            } while (input.KeyChar.ToString() != "E");
 
+            Console.ReadKey();
                
         }
 

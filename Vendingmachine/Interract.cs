@@ -9,7 +9,7 @@ namespace Vendingmachine
     internal interface Interract
     {
 
-        public void buyitem()
+        public static void buyitem()
         {
             Console.WriteLine("Item bought.");
         }

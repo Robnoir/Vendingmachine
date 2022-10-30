@@ -27,7 +27,7 @@ namespace Vendingmachine
         public static void PrintCoco()
         {
             //Skriva ut innehållet från den statiska listan inuti klassen Person
-            Console.WriteLine("Here is the Sandwich menu: ");
+            Console.WriteLine("Here is the chocolate menu: ");
             foreach (Chocolate chocolate in Chocolate.Coco)
             {
 
