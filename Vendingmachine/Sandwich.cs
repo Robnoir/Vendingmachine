@@ -1,111 +1,153 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Reflection;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
 namespace Vendingmachine
 {
-    internal class Sandwich
+    internal class Sandwich : Products, Interract
     {
 
-        public string name { get; set; }
-        public string description;
-        public int price;
-        public string id;
-        public static List<Sandwich> Sandwichlist = new List<Sandwich>();
 
 
+        public static Sandwich BLT = new Sandwich { name = "BLT", description = "Description: Bacon, Lettuce and tomato", price = 50 };
+        public static Sandwich PhillyCheese = new Sandwich { name = "Cheese", description = "Description: Cheese, Lettuce and tomato", price = 50 };
+        public static Sandwich Ostmacka = new Sandwich { name = "Ostmacka", description = "Plain Cheese sandwich", price = 50 };
+        public static Sandwich ClubSandwich = new Sandwich { name = "ClubSandwich", description = "Delicius turkey sallad sandwich", price = 50 };
 
-
-        
-        public Sandwich(string name, string description, int price, string id)
+        public static List<Sandwich> Sandwichlist = new List<Sandwich>
         {
-            this.name = name;
-            this.description = description;
-            this.price = price;
-            this.id = id;
+            BLT,
+            PhillyCheese,
+            Ostmacka,
+            ClubSandwich,
+        };
 
-          
-        }
 
-        public static void Info()
-        {
-            Console.WriteLine("sugavmig");
-        }
 
-        
         public static void PrintSandwich()
         {
 
-
-
-             
-            //Skriva ut innehållet från den statiska listan inuti klassen Person
-
-            Console.WriteLine("Here is the Sandwich menu, please make a selection: ");
-
-
-            ConsoleKeyInfo input;
-            do
+            while (true)
             {
-                
 
-                foreach (var sandwich in Sandwichlist)
+                Console.Clear();
+
+                Console.WriteLine("Here is the Sandwich menu, please make a selection on wich sandwich to buy: ");
+                Console.WriteLine("1. BLT");
+                Console.WriteLine("2. Philly Cheese");
+                Console.WriteLine("3. Ostmacka");
+                Console.WriteLine("4. Clubsandwich");
+                Console.WriteLine("5.Description");
+                string menuselect= Console.ReadLine();
+                if (menuselect == "1")
                 {
-
-                    Console.WriteLine("|{0}| |Price: {1}||", sandwich.name , sandwich.price);
-
-                }
-
-                
-                input = Console.ReadKey();
-                string val;
-                switch (input.KeyChar.ToString())
-                {
-                   //TODO
-                   //Utveckla if valet.
-                    case "1":
+                    Console.Clear();
+                    Console.WriteLine("Thanx for choosing BLT , Please make a selection: ");
+                    Console.WriteLine("1. Buy Item.");
+                    Console.WriteLine("2. Go Back");
+                    if (Console.ReadLine() == "1")
+                    {
                         Console.Clear();
-                        Console.WriteLine("Thanx for choosing the BLT");
-                        Console.WriteLine("1.See information");
-                        Console.WriteLine("2.Buy Sandwich");
+                        Interract.buyitem();
+                        Interract.eatsandwich();
+                        Console.ReadLine();
 
-                        val = Console.ReadLine();
-                        if(val =="1")
-                        {
-                            foreach(var sandwich in Sandwichlist)
-                            {
-                                Console.WriteLine(sandwich.description = "BLT");
-                            }
+                    }
+                    else if (Console.ReadLine() == "2")
+                    {
+                        PrintSandwich();
 
-                        }
-                        else if(val =="2")
-                        {
-                            Interract.buyitem();
+                    }
+                    else if (Console.ReadLine() == "3")
+                    {
+                        break;
+                    }
 
-                        }
-                       
+
+                }else if(menuselect == "2")
+                {
+                    Console.Clear();
+                    Console.WriteLine("Thanx for choosing Philly Cheese , Please make a selection: ");
+                    Console.WriteLine("1. Buy Item.");
+                    Console.WriteLine("2. Go Back");
+
+                    if(Console.ReadLine() == "1")
+                    {
+                        Console.Clear();
                         
-                        break;
+                        Interract.buyitem();
+                        Interract.eatsandwich();
+                        Console.ReadLine();
+                    } else if (Console.ReadLine() == "2")
+                    {
+                        PrintSandwich();
+                    }
 
+                } else if(menuselect == "3")
+                {
+                    Console.Clear();
+                    Console.WriteLine("Thanx for choosing Ostmacka , Please make a selection: ");
+                    Console.WriteLine("1. Buy Item.");
+                    Console.WriteLine("2. Go Back");
+                    if (Console.ReadLine() == "1")
+                    {
+                        Interract.buyitem();
+                        Interract.eatsandwich();
 
-                    default:
-                        break;
+                        Console.ReadKey();
+                    }
+                    else if (Console.ReadLine() == "2")
+                    {
+                        PrintSandwich();
+                    }
+                } else if(menuselect == "4")
+                {
+                    Console.Clear();
+                    Console.WriteLine("Thanx for choosing Clubsandwich , Please make a selection: ");
+                    Console.WriteLine("1. Buy Item.");
+                    Console.WriteLine("2. Go Back");
+                    if (Console.ReadLine() == "1")
+                    {
+                        Interract.buyitem();
+                        Interract.eatsandwich();
+                        Console.ReadKey();
+                    }
+                    else if (Console.ReadLine() == "2")
+                    {
+                        PrintSandwich();
 
+                    }
+                    Console.ReadKey();
+                } else if(menuselect == "5")
+                {
+                    Interract.sandwichDescription();
+                    foreach(var sandwich in Sandwichlist)
+                    {
+                        Console.WriteLine(sandwich.description);
+                    }   
                 }
                 
+                
 
-            } while (input.KeyChar.ToString() != "E");
 
-            Console.ReadKey();
-               
+              
+                  
+
+            }
+
+            
+
         }
-
-
     }
+
 }

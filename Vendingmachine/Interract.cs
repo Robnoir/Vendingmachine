@@ -11,27 +11,33 @@ namespace Vendingmachine
 
         public static void buyitem()
         {
-            Console.WriteLine("Item bought.");
+            Console.WriteLine("item bought");
         }
 
-       
-
-        public void drink()
+        public  static void sandwichDescription()
         {
+            Console.WriteLine("Here is your information about your sandwiches: ");
+                
+        }
+  
 
-            Console.WriteLine("You are now drinking");
-        }  
-        public void eat()
+        public static void drink()
+        {
+            Console.WriteLine("You are now drinking your beverage");
+        }
+        public static void eatchocolate()
         {
             Console.WriteLine("You are now eating your chocolate");
+
+            Console.ReadKey();
         }
-        public void eatsandwich()
+        public static void eatsandwich()
         {
             Console.WriteLine("You are now eating your sandwich");
         }
 
 
-       
+
 
 
     }
